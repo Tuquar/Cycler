@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "cycler",
+  "version": "1.0",
+
+  "description": "A firefox addon which displays a set of websites in rotation",
+
+  "icons": {
+    "48": "icons/cycler.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/cycler.png",
+    "default_title": "Cycler",
+    "default_popup": "popup/cycler_menu.html"
+  },
+
+  "content_scripts": []
+}
