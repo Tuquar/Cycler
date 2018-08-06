@@ -35,18 +35,22 @@ function toggleSaveState() {
 function updateLinks(){
     cyclerList.innerHTML = '';
     for(let count = 0; count < cyclerData.list.length; count++){
-        let li = document.createElement('li');
-        let link = document.createElement('a');
-        link.text = cyclerData.list[count].nickname;
-        link.addEventListener('click', (event) => {
-            event.stopImmediatePropagation();
-            changeURL(cyclerData.list[count].link);
-        });
-        link.href = link;
-        li.appendChild(link);
-        
+        let li = getListItem(cyclerData.list[count]);
         cyclerList.appendChild(li);
     }
+}
+
+function getListItem(data) {
+    let li = document.createElement('li');
+    let link = document.createElement('a');
+    link.text = data.nickname;
+    link.addEventListener('click', (event) => {
+        event.stopImmediatePropagation();
+        changeURL(data.link);
+    });
+    link.href = link;
+    li.appendChild(link);
+    return li;
 }
 
 async function changeURL(link){
@@ -78,3 +82,4 @@ async function retrieveLinks() {
 }
 
 retrieveLinks();
+
